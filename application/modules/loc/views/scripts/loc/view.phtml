@@ -1,0 +1,56 @@
+<a href="<?php echo $this->url(array('action' => 'index', 'id' => null)) ?>">Lista lokalizacji</a>
+
+<table frame="void" rules="all" cellspacing="0" cellpadding="5">
+    <caption>Lokalizacja</caption>
+    <tr>
+        <th>Id</th>
+        <td><?php echo $this->loc->loc_id ?></td>
+    </tr>
+    <tr>
+        <th>Nazwa</th>
+        <td><?php echo $this->loc->name ?></td>
+    </tr>
+    <tr>
+        <th>Opis</th>
+        <td><?php echo $this->loc->description ?></td>
+    </tr>
+    <tr>
+        <th>Adres</th>
+        <td><?php echo $this->loc->address ?></td>
+    </tr>
+    <tr>
+        <th>E-mail</th>
+        <td><?php echo $this->loc->email ?></td>
+    </tr>
+    <tr>
+        <th>Data "od"</th>
+        <td><?php echo $this->loc->from ?></td>
+    </tr>
+    <tr>
+        <th>Data "do"</th>
+        <td><?php echo $this->loc->to ?></td>
+    </tr>
+    <tr>
+        <th>Szerokość geograficzna</th>
+        <td><?php echo $this->loc->lat ?></td>
+    </tr>
+    <tr>
+        <th>Długość geograficzna</th>
+        <td><?php echo $this->loc->lng ?></td>
+    </tr>
+</table>
+
+<?php echo $this->form ?>
+
+<form action="" method="post">
+<table frame="void" rules="all" cellspacing="0" cellpadding="5">
+    <caption>Komentarze</caption>
+    <?php foreach ($this->comm as $c): ?>
+    <tr>
+        <td><?php echo $c->comment ?></td>
+        <td><?php echo $c->email ?></td>
+        <td><button type="submit" name="del" value="<?php echo $c->comm_id ?>">usuń</button></td>
+    </tr>
+    <?php endforeach ?>
+</table>
+</form>

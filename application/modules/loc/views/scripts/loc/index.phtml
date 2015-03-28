@@ -1,0 +1,24 @@
+<a href="<?php echo $this->url(array('action' => 'add')) ?>">Dodaj lokalizację</a>
+
+<form method="get" action="" style="margin: 0.5em 0;">
+    <?php echo $this->form->address ?>
+    <input type="submit" value="szukaj">
+</form>
+
+<table frame="void" rules="all" cellspacing="0" cellpadding="5">
+    <caption>Lokalizacje</caption>
+<?php foreach ($this->locs as $l): ?>
+    <tr>
+        <td><?php echo $l->loc_id ?></td>
+        <td><?php echo $l->name ?></td>
+        <td><?php echo $l->description ?></td>
+        <td><?php echo $l->address ?></td>
+        <td><?php echo $l->email ?></td>
+        <td><?php echo $l->from ?></td>
+        <td><?php echo $l->to ?></td>
+        <td><?php echo $l->lat ?></td>
+        <td><?php echo $l->lng ?></td>
+        <td><a href="<?php echo $this->url(array('action' => 'view', 'id' => $l->loc_id)) ?>">podgląd</a></td>
+    </tr>
+<?php endforeach ?>
+</table>
