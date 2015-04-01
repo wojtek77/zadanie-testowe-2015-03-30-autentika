@@ -16,7 +16,7 @@ class My_GoogleMap {
          * usuniecie polskich ogonkow
          * bo inaczej nie dziala wyszukiwanie
          */
-        $address = iconv('UTF-8', 'ASCII//TRANSLIT', $address);
+        $address = My_Coding::removePolishCharactersFromUtf8($address);
         
         $client = new Zend_Http_Client('http://maps.googleapis.com/maps/api/geocode/json');
         $client->setParameterGet('sensor', 'false'); // Do we have a GPS sensor? Probably not on most servers.
